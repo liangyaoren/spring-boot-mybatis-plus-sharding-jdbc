@@ -1,0 +1,32 @@
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://192.168.75.86:3306/iomp?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+#    username: root
+#    password: rootroot
+
+
+spring:
+  shardingsphere:
+    datasource:
+      names: master,slave
+      master:
+        driver-class-name: com.mysql.jdbc.Driver
+        password: 'rootroot'
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.75.86:3306/iomp?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+        username: root
+      slave:
+        driver-class-name: com.mysql.jdbc.Driver
+        password: 'rootroot'
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.75.86:3307/iomp?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+        username: root
+    masterslave:
+      load-balance-algorithm-type: round_robin
+      master-data-source-name: master
+      name: ms
+      slave-data-source-names: slave
+    props:
+      sql:
+        show: true
