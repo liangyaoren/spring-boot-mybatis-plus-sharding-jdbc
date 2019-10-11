@@ -1,3 +1,4 @@
+#单库配置
 #spring:
 #  datasource:
 #    driver-class-name: com.mysql.jdbc.Driver
@@ -5,7 +6,7 @@
 #    username: root
 #    password: rootroot
 
-
+#sharding-jdbc 配置
 spring:
   shardingsphere:
     datasource:
